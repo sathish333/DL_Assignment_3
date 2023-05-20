@@ -1,17 +1,17 @@
 This repository contains solutions for Assignment-3. 
 
 
-**Objective:** To a build transilteration system wherein given a romanized word ,we should produce corrspsoonding word in Telugu.
+## **Objective:** 
+To build a transilteration system, our aim is to generate the Telugu word that corresponds to a given romanized word. For example, when provided with the word ```prayaanikulu ```our system will produce the Telugu word ```ప్రయాణికులు```.
 
-i.e Given ```prayaanikulu``` we should produce ```ప్రయాణికులు ```.
 
-
-**Dataset**: Sample Dataset is provided by **AI4Bharat**.
+## **Dataset**: 
+Sample Dataset is provided by **AI4Bharat**.
 * Number of samples in train: 51.2K
 * Number of samples in valid: ~4.1k
 * Number fo samples in test :  ~4.1K
 
-## Folder structure
+## **Folder structure:**
 
 * **WandB_Sweep_Vanilla.ipynb:**  Contains the code to experiment with the different hyparparemeters and observe the results in WandB. We don't have attention mechanism here. 
 * **WandB_Sweep_Attention.ipynb.ipynb:** Contains the code to experiment with the different hyparparemeters with Attention support.
@@ -22,14 +22,14 @@ i.e Given ```prayaanikulu``` we should produce ```ప్రయాణికుల
 
 
 
-## How to use:
+## **How to use:**
 * run the command 
   ``` python train.py``` > It trains a model with best configuaration and prints test accuracy. 
 
 * One can overwrite the default values by passing command line aruguments.
 
 
-**Arguments supported:**
+### **Arguments supported:**
 <br>
 
 
