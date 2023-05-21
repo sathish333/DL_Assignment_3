@@ -318,8 +318,6 @@ class AttentionSeq2Seq(nn.Module):
         
 
     def forward(self,source,target,prediction=False):
-        # source  (Sequnce_lenghth,batch_size)
-        # target: (max_traget_length,batch_size)
 
          # if Prediction is True, then teacher forcing will be disbaled.
         
@@ -357,7 +355,7 @@ class AttentionSeq2Seq(nn.Module):
             max_prob = output.argmax(1)
             
             if not prediction:
-                x = target[t] if random.random() < 0.5 else max_prob
+                x = target[t] if random.random() < 0.5 else max_prob # teacher forcing with if random probability < 0.5
             else:
                 x=max_prob
         return outputs,attention_scores
