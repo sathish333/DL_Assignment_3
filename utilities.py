@@ -270,9 +270,9 @@ class AttentionDecoder(nn.Module):
         self.attn = nn.Linear(self.hidden_size +config.embedding_size, config.max_seq_length)
         
         if config.bidirectional=='No':
-            self.attn_combined = nn.Linear(self.hidden_size +config.embedding_size, self.hidden_size)
+            self.attn_combined = nn.Linear(config.hidden_size +config.embedding_size, self.hidden_size)
         else:
-            self.attn_combined = nn.Linear(self.hidden_size*2 +config.embedding_size, self.hidden_size)
+            self.attn_combined = nn.Linear(config.hidden_size*2 +config.embedding_size, self.hidden_size)
             
 
 

@@ -12,24 +12,25 @@ import random
 from utilities import *
 import argparse
 
+#loading data
 train,valid,test=load_data(data_path,lang)
 
-add_start_end(train)
+add_start_end(train) #adding start and end characters
 add_start_end(valid)
 add_start_end(test)
 
-train_src_chars,train_target_chars=get_unique_chars(train)
+train_src_chars,train_target_chars=get_unique_chars(train) # obtain unique charcaters
 valid_src_chars,valid_target_chars=get_unique_chars(valid)
 test_src_chars,test_target_chars=get_unique_chars(test)
 train_target_chars.add('*') # extra char to handle unknowns in valid and test data.
     
-src_char_idx,src_idx_char=get_char_map(train_src_chars)
+src_char_idx,src_idx_char=get_char_map(train_src_chars) # create map for each unique charcter to -> integer
 target_char_idx,target_idx_char=get_char_map(train_target_chars)
 
 encoder_vocab_size=len(src_char_idx)+1 # one extra for padding
 decoder_vocab_size=len(target_char_idx)+1 # one extra for padding
 
-max_seq_length=train[0].apply(lambda x:len(x)).max() # maximum sequence length in latin word
+max_seq_length=train[0].apply(lambda x:len(x)).max() # maximum sequence length of latin word
 max_target_length=train[1].apply(lambda x:len(x)).max() # maximum word length of target
 
 
@@ -90,7 +91,6 @@ def main():
         model.train()
         batch_no=0
         for data in get_batch(train_src_int,train_target_int,config.batch_size):
-#             print(batch_no)
             batch_no+=1
             x=data[0]
             y=data[1]
@@ -105,7 +105,7 @@ def main():
             loss = criterion(output, target)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1) # gradient clipping
-            optimizer.step()
+            optimizer.step()# update parameters
             train_loss+=loss.item()*config.batch_size
 
             batch_acc=cal_acc(outputs,y)
@@ -124,7 +124,7 @@ def main():
                 y=data[1]
                 x=x.to(torch.int64).T
                 y=y.to(torch.int64).T
-                outputs,attention_scores=model.forward(x,y,prediction=True)
+                outputs,attention_scores=model.forward(x,y,prediction=True)# prediction set to True to disable teacher forcing
                 output=outputs.reshape(-1,outputs.shape[2])
                 target=y.reshape(-1)
                 target=target-1
