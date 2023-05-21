@@ -1,5 +1,4 @@
 import wandb
-wandb.login(key='24434976526d9265fdbe2b2150787f46522f5da4')
 
 import numpy as np
 import pandas as pd
@@ -40,13 +39,6 @@ valid_src_int,valid_target_int=vectorize(valid,src_char_idx,target_char_idx,max_
 test_src_int,test_target_int=vectorize(test,src_char_idx,target_char_idx,max_seq_length)
 
 
-upto=1000
-train_src_int=train_src_int[:upto]
-train_target_int=train_target_int[:upto]
-
-valid_src_int=valid_src_int[:upto]
-valid_target_int=valid_target_int[:upto]
-
 
 def predict_test(model):
     ''' Used at the end to calculate test accuracy'''
@@ -72,7 +64,7 @@ def predict_test(model):
     
 
 def main():
-    config=wandb.config
+    config=wandb.config # get paramters from wandb
     config.encoder_vocab_size=encoder_vocab_size
     config.decoder_vocab_size=decoder_vocab_size
     config.max_seq_length=max_seq_length
@@ -157,7 +149,7 @@ if __name__=="__main__":
     
     
     params = vars(parser.parse_args())
-    wandb.init(project=params['wandb_project'],config=params)
+    wandb.init(project=params['wandb_project'],config=params) #initilaize wandb with the parameters
     config=wandb.config
     run_name=f'Attention {config.attention} - Cell-{config.cell_type} Hidden-{config.hidden_size} Embedding-{config.embedding_size} Bidir-{config.bidirectional} Dropout -{config.dropout} EL-{config.encoder_num_layers} DL-{config.decoder_num_layers}'
     wandb.run.name=run_name
