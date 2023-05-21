@@ -37,8 +37,8 @@ Sample Dataset is provided by **AI4Bharat**.
 | :---: | :-------------: | :----------- |
 | `-wp`, `--wandb_project` | CS22M080 | Project name used to track experiments in Weights & Biases dashboard |
 | `-we`, `--wandb_entity` | CS22M080 | Wandb Entity used to track experiments in the Weights & Biases dashboard. |
- `-attn`, `--attention` | Yes | To use attention mechanism or not |
-| `-e`, `--cell_type` | GRU |  Specify which cell type to use.|
+ `-attn`, `--attention` | Yes | To use attention mechanism or not. <br> choices: ['Yes','No'] |
+| `-e`, `--cell_type` | GRU |  Specify which cell type to use.<br> choices:['GRU','LSTM','RNN']|
 | `-e`, `--epochs` | 15 |  Number of epochs to train neural network.|
 | `-b`, `--batch_size` | 256 | Batch size used to train neural network. |
 | `-el`, `--encoder_num_layers` | 3 | Number of encoder layers |
@@ -46,7 +46,7 @@ Sample Dataset is provided by **AI4Bharat**.
 | `-hs`, `--hidden_size` | 512 | cell hidden state size|
 | `-es`, `--embedding_size` | 256 | embedding size|
 | `-do`, `--dropout` | 0.2 | Dropout used in in cells.|
-| `-bi`, `--bidirectional` | Yes | To use Bi directional cell or not.|
+| `-bi`, `--bidirectional` | Yes | To use Bi directional cell or not. <br>choices:['Yes','No']|
 
 <br>
 
