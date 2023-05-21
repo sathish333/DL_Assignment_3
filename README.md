@@ -16,8 +16,8 @@ Sample Dataset is provided by **AI4Bharat**.
 * **WandB_Sweep_Vanilla.ipynb:**  Contains the code to experiment with the different hyparparemeters and observe the results in WandB. We don't have attention mechanism here. 
 * **WandB_Sweep_Attention.ipynb.ipynb:** Contains the code to experiment with the different hyparparemeters with Attention support.
 * **Best_Model_Vanilla.ipynb:** Model will be built based on the best configuration (for vanilla models) and inference is done on the test data set. 
-* **Best_Model_Attention.ipynb:** Model will be built based on the best configuration (for Attention models) and inference is done on the test data set and attention scores are visualaized t understand the which character is given more wegihtage at each of the time step.
-* **utilities.py:** Conatins all the helper functions/classes. 
+* **Best_Model_Attention.ipynb:** Model will be built based on the best configuration (for Attention models) and inference is done on the test data set and attention scores are visualaized t understand the which hidden state is given more wegihtage at each of the time step.
+* **utilities.py:** Contains all the helper functions/classes. 
 * **train.py**: Single Command line script which supports traning the model with/without Attention.
 
 
