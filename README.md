@@ -49,3 +49,10 @@ Sample Dataset is provided by **AI4Bharat**.
 | `-bi`, `--bidirectional` | Yes | To use Bi directional cell or not.|
 
 <br>
+
+## Results:
+
+We are able to achieve 51% exact word accuracy on test data with the attention model. 
+
+
+
