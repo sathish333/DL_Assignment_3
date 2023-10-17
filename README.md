@@ -1,4 +1,3 @@
-This repository contains solutions for Assignment-3. 
 
 
 ## **Objective:** 
